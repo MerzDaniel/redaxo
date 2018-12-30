@@ -1,0 +1,11 @@
+version: "3"
+services:
+  redaxo:
+    build: .
+    ports:
+      - 8080:80
+  mysql:
+    # redaxo does not work with the new mysql8 because of the new authentication method
+    image: mysql:5
+    environment:
+      - MYSQL_ROOT_PASSWORD
